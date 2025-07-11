@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - FrameLoop</title>
+    <meta name="description" content="Buy and sell photography gear on FrameLoop's trusted marketplace.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="marketplace-header">
+        <div class="container">
+            <nav class="marketplace-nav">
+                <a href="index.html" class="logo">FrameLoop</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="marketplace.html" class="active">Marketplace</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+                <button class="cart-btn" onclick="openCartModal()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <main class="marketplace-main">
+        <div class="container marketplace-layout">
+            <aside class="marketplace-sidebar">
+                <h2>Filters</h2>
+                <form id="filterForm">
+                    <div class="filter-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="">All</option>
+                            <option value="camera">Camera</option>
+                            <option value="lens">Lens</option>
+                            <option value="drone">Drone</option>
+                            <option value="lighting">Lighting</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition">
+                            <option value="">All</option>
+                            <option value="new">New</option>
+                            <option value="like-new">Like New</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="priceRange">Price</label>
+                        <input type="range" id="priceRange" name="priceRange" min="0" max="5000" step="100">
+                        <span id="priceValue">$0 - $5000</span>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Apply Filters</button>
+                </form>
+            </aside>
+            <section class="marketplace-content">
+                <div class="marketplace-search-bar">
+                    <input type="text" id="searchInput" placeholder="Search for gear...">
+                    <a href="#" class="marketplace-sell-link" onclick="openSellModal()">List your gear for sale</a>
+                </div>
+                <div id="tradeNearby" class="trade-nearby-section">
+                    <h3>Trade Nearby</h3>
+                    <div id="nearbyGrid" class="marketplace-grid"></div>
+                </div>
+                <div id="productCount" class="product-count"></div>
+                <div id="gearGrid" class="marketplace-grid"></div>
+            </section>
+        </div>
+    </main>
+    <footer class="marketplace-footer">
+        <div class="container">
+            <div class="footer-content">
+                <span>&copy; 2024 FrameLoop. All rights reserved.</span>
+                <nav class="footer-nav">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h2>Your Cart</h2>
+                <span class="close" onclick="closeCartModal()">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-footer">
+                <span id="cartTotal" class="cart-total"></span>
+                <button class="btn-primary" onclick="openCheckoutModal()">Checkout</button>
+            </div>
+        </div>
+    </div>
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal-content">
+            <div class="modal-header">
+                <h2>Checkout</h2>
+                <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="checkoutName">Full Name</label>
+                    <input type="text" id="checkoutName" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutEmail">Email</label>
+                    <input type="email" id="checkoutEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutAddress">Shipping Address</label>
+                    <textarea id="checkoutAddress" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeCheckoutModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="marketplace.js"></script>
+</body>
+</html> 

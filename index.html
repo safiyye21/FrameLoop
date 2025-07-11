@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrameLoop - Photography Community</title>
+    <link rel="stylesheet" href="community-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>FrameLoop</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="#discover" class="nav-link">Discover</a>
+                <a href="#creators" class="nav-link">Creators</a>
+                <a href="#opportunities" class="nav-link">Opportunities</a>
+                <a href="#community" class="nav-link">Community</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-secondary" id="loginBtn">Sign In</button>
+                <button class="btn-primary" id="joinBtn">Join Community</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Share Your Vision</h1>
+            <p class="hero-subtitle">Connect with photographers worldwide. Share your work, showcase your gear, and discover opportunities.</p>
+            <div class="hero-actions">
+                <button class="btn-primary btn-large">Start Sharing</button>
+                <button class="btn-secondary btn-large">Explore Creators</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="image-grid">
+                <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop')"></div>
+                <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop')"></div>
+                <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop')"></div>
+                <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Creators -->
+    <section class="featured-creators" id="creators">
+        <div class="container">
+            <h2 class="section-title">Featured Creators</h2>
+            
+            <!-- Location Controls -->
+            <div class="location-controls">
+                <div class="location-indicator" id="locationIndicator">
+                    <i class="fas fa-globe"></i>
+                    <span>Loading location...</span>
+                </div>
+                
+                <div class="location-filters" id="locationFilters">
+                    <!-- Location filter buttons will be loaded here -->
+                </div>
+                
+                <div class="country-selector" id="countrySelector">
+                    <!-- Country dropdown will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="creators-grid" id="creatorsGrid">
+                <!-- Creators will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Feed -->
+    <section class="image-feed" id="discover">
+        <div class="container">
+            <h2 class="section-title">Discover Amazing Work</h2>
+            <div class="feed-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="portrait">Portrait</button>
+                <button class="filter-btn" data-filter="landscape">Landscape</button>
+                <button class="filter-btn" data-filter="street">Street</button>
+                <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+            </div>
+            <div class="image-masonry" id="imageMasonry">
+                <!-- Images will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section class="opportunities" id="opportunities">
+        <div class="container">
+            <h2 class="section-title">Opportunities</h2>
+            <div class="opportunities-grid" id="opportunitiesGrid">
+                <!-- Opportunities will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- World Map -->
+    <section class="world-map-section">
+        <div class="container">
+            <h2 class="section-title">Creators Around the World</h2>
+            <div class="map-container">
+                <div class="world-map" id="worldMap">
+                    <!-- World map with creator locations will be rendered here -->
+                    <div class="map-placeholder">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>Global Creator Network</h3>
+                        <p>Discover photographers from 8 countries and counting</p>
+                        <div class="map-stats">
+                            <div class="map-stat">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Countries</span>
+                            </div>
+                            <div class="map-stat">
+                                <span class="stat-number">50km</span>
+                                <span class="stat-label">Nearby Radius</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-legend">
+                    <h4>Creator Locations</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="legend-dot us"></span>
+                            <span>United States (2)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot uk"></span>
+                            <span>United Kingdom (1)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot kr"></span>
+                            <span>South Korea (1)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot jp"></span>
+                            <span>Japan (1)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot br"></span>
+                            <span>Brazil (1)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot eg"></span>
+                            <span>Egypt (1)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot fr"></span>
+                            <span>France (1)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Stats -->
+    <section class="community-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="stat-number">10K+</h3>
+                    <p class="stat-label">Creators</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">50K+</h3>
+                    <p class="stat-label">Images Shared</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">500+</h3>
+                    <p class="stat-label">Opportunities</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">8</h3>
+                    <p class="stat-label">Countries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Creator Profile -->
+    <div class="modal" id="creatorModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="creator-profile" id="creatorProfile">
+                <!-- Creator profile content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image Detail -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="image-detail" id="imageDetail">
+                <!-- Image detail content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-form">
+                <h2>Join FrameLoop</h2>
+                <div class="social-auth">
+                    <button class="btn-social btn-instagram">
+                        <i class="fab fa-instagram"></i>
+                        Connect with Instagram
+                    </button>
+                    <button class="btn-social btn-vsco">
+                        <i class="fas fa-camera"></i>
+                        Connect with VSCO
+                    </button>
+                </div>
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                <form id="signupForm">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="community.js"></script>
+</body>
+</html> 
