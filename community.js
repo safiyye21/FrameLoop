@@ -573,11 +573,15 @@ function setupFilterButtons() {
 function openCreatorProfile(creatorId) {
     const creator = creators.find(c => c.id === creatorId);
     if (!creator) return;
-    
+    // Use default avatar if missing
+    const avatarUrl = creator.avatar && creator.avatar.trim() !== ''
+        ? creator.avatar
+        : 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="60" fill="%23f0f0f0"/><circle cx="60" cy="50" r="28" fill="%23ccc"/><ellipse cx="60" cy="95" rx="38" ry="22" fill="%23ccc"/></svg>';
     document.getElementById('creatorProfile').innerHTML = `
         <div class="creator-profile-content">
             <div class="creator-header-large">
-                <div class="creator-avatar-large" style="background-image: url('${creator.avatar}')"></div>
+                <div class="creator-avatar-large" style="background-image: url('${avatarUrl}')"></div>
+                <button class="upload-avatar-btn" title="Upload Photo"><i class="fas fa-camera"></i></button>
                 <h2>${creator.name}</h2>
                 <p class="creator-location">${creator.location}, ${creator.country}</p>
                 <p class="creator-bio">${creator.bio}</p>
@@ -599,14 +603,13 @@ function openCreatorProfile(creatorId) {
             <div class="creator-gallery">
                 <h3>Recent Work</h3>
                 <div class="gallery-grid">
-                    ${creator.images.map(img => `
+                    ${Array.isArray(creator.images) ? creator.images.map(img => `
                         <div class="gallery-item" style="background-image: url('${img}')"></div>
-                    `).join('')}
+                    `).join('') : ''}
                 </div>
             </div>
         </div>
     `;
-    
     creatorModal.style.display = 'block';
 }
 
